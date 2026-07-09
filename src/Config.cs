@@ -30,32 +30,40 @@ internal class Config
 
     internal static Config Load(string configFilePath)
     {
-        Console.WriteLine("Verifying configuration file...");
+        Verify(configFilePath);
 
-        if (!File.Exists(configFilePath))
+        try
         {
-            Console.WriteLine("Configuration file does not exist.");
+            var configJson = File.ReadAllText(configFilePath);
 
-            Create(configFilePath);
+            return JsonSerializer.Deserialize<Config>(configJson)!;
+        }
+        catch (Exception ex)
+        {
+            Console.WriteLine($"{Environment.NewLine}" +
+                              $"Error reading configuration file:{Environment.NewLine}" +
+                              $"{ex.Message}{Environment.NewLine}" +
+                              $"{Environment.NewLine}" +
+                              $"Press any key to exit.");
+
+            Environment.Exit(0);
         }
 
-        Console.WriteLine("Loading configuration file...");
+        return null;
+    }
 
-        var configJson = File.ReadAllText(configFilePath);
-
-        return JsonSerializer.Deserialize<Config>(configJson)!;
+    private static void Verify(string configFilePath)
+    {
+        if (!File.Exists(configFilePath))
+        {
+            Create(configFilePath);
+        }
     }
 
     /// <summary>Create a default configuration file.</summary>
     /// <param name="configFilePath">Path to the configuration file.</param>
-    private static void Create(string configFilePath)
-    {
-        Console.WriteLine("Creating default configuration file...");
-
-        var config = new Config();
-
-        File.WriteAllText(configFilePath, JsonSerializer.Serialize(config, _prettyJson));
-    }
+    private static void Create(string configFilePath) =>
+        File.WriteAllText(configFilePath, JsonSerializer.Serialize(new Config(), _prettyJson));
 }
 
 /*
