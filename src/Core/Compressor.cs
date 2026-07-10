@@ -1,4 +1,4 @@
-﻿namespace MtgjsonDownloader;
+﻿namespace MtgjsonDownloader.Core;
 
 internal class Compressor
 {

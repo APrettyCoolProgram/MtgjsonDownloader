@@ -1,6 +1,8 @@
 ﻿// 260709_code
 // 260709_documentation
 
+using MtgjsonDownloader.Core;
+
 namespace MtgjsonDownloader;
 
 internal class Program
@@ -10,7 +12,8 @@ internal class Program
     private static void Main(string[] args)
     {
         Console.Clear();
-        Console.WriteLine($"[Starting MTGJSON Downloader]{Environment.NewLine}");
+
+        Console.WriteLine(Catalog.msg_StartApp());
 
         Config config = Config.Load(_configFilePath);
 
@@ -18,7 +21,6 @@ internal class Program
 
         Download.MtgjsonJson(config);
 
-        Console.WriteLine($"{Environment.NewLine}" +
-                          $"[Downloads complete]{Environment.NewLine}");
+        Console.WriteLine(Catalog.msg_Complete());
     }
 }

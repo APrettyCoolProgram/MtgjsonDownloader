@@ -3,7 +3,7 @@
 
 using System.Text.Json;
 
-namespace MtgjsonDownloader;
+namespace MtgjsonDownloader.Core;
 
 internal class Config
 {

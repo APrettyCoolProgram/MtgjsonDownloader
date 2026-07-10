@@ -1,7 +1,7 @@
 ﻿// 260709_code
 // 260709_documentation
 
-namespace MtgjsonDownloader;
+namespace MtgjsonDownloader.Core;
 
 internal static class Download
 {
@@ -21,7 +21,7 @@ internal static class Download
 
                 _ = ToLocalFile(hashUrl, hashLocalPath);
 
-                Hash.Verify(mtgjsonfile, zipLocalPath, hashLocalPath);
+                Du.DuHash.Verify(mtgjsonfile, zipLocalPath, hashLocalPath);
             }
 
             var justFileName= Path.GetFileNameWithoutExtension(mtgjsonfile);
