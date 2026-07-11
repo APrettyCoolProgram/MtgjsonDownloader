@@ -1,11 +1,11 @@
 ﻿// =============================================================================
 // MtgjsonDownloader
-// A utility for downloading MTGJSON files and verifying their integrity.
+// A utility for downloading MTGJSON files.
 // https://github.com/APrettyCoolProgram/MtgjsonDownloader
 // Copyright (c) A Pretty Cool Program. All rights reserved.
 // Licensed under the Apache 2.0 license.
 // -----------------------------------------------------------------------------
-// R0.0
+// R26.7.0.0-development+111250
 // =============================================================================
 
 namespace MtgjsonDownloader;

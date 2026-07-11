@@ -1,14 +1,9 @@
-﻿// 260710_code
-// 260710_documentation
+﻿// 260711_code
+// 260711_documentation;
 
 namespace MtgjsonDownloader.Core;
 
+/// <summary>Blueprints.</summary>
 internal class Blueprint
 {
-    public List<string> MtgjsonFiles { get; set; } =
-    [
-        "Keywords.json",
-        "CardTypes.json"
-    ];
-
 }

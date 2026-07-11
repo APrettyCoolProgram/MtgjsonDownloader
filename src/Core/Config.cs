@@ -1,5 +1,5 @@
-﻿// 260709_code
-// 260709_documentation
+﻿// 260711_code
+// 260711_documentation
 
 using System.Text.Json;
 
@@ -7,27 +7,35 @@ namespace MtgjsonDownloader.Core;
 
 internal class Config
 {
+    /// <summary>JSON serializer options for pretty printing.</summary>
     private static readonly JsonSerializerOptions _prettyJson = new()
     {
         WriteIndented = true
     };
 
+    /// <summary>Required framework directories.</summary>
     public List<string> FrameworkDirectories =
     [
         "MTGJSON",
         "Database"
     ];
 
+    /// <summary>Root URL for the MTGJSON API.</summary>
     public string MtgjsonRootUrl { get; set; } = "https://mtgjson.com/api/v5";
 
+    /// <summary>The list of MTGJSON files to download.</summary>
     public List<string> MtgjsonFiles { get; set; } =
     [
         "Keywords.json",
         "CardTypes.json"
     ];
 
+    /// <summary>Indicates whether to verify the hashes of the downloaded files.</summary>
     public bool VerifyHashes { get; set; } = true;
 
+    /// <summary> Load the configuration settings.</summary>
+    /// <param name="configFilePath">Path to the configuration file.</param>
+    /// <returns>The configuration settings.</returns>
     internal static Config Load(string configFilePath)
     {
         Verify(configFilePath);
@@ -40,18 +48,18 @@ internal class Config
         }
         catch (Exception ex)
         {
-            Console.WriteLine($"{Environment.NewLine}" +
-                              $"Error reading configuration file:{Environment.NewLine}" +
-                              $"{ex.Message}{Environment.NewLine}" +
-                              $"{Environment.NewLine}" +
-                              $"Press any key to exit.");
+            Console.WriteLine(Catalog.msg_ConfigError(ex));
 
             Environment.Exit(0);
         }
 
+        // Required to satisfy the compiler.
         return null;
     }
 
+    /// <summary>Verify the existence of the configuration file.</summary>
+    /// <remarks>If the configuration file does not exist, a default configuration file will be created.</remarks>
+    /// <param name="configFilePath">Path to the configuration file.</param>
     private static void Verify(string configFilePath)
     {
         if (!File.Exists(configFilePath))

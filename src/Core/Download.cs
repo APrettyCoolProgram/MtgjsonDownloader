@@ -1,5 +1,7 @@
-﻿// 260709_code
-// 260709_documentation
+﻿// 260711_code
+// 260711_documentation
+
+using Du;
 
 namespace MtgjsonDownloader.Core;
 
@@ -21,14 +23,15 @@ internal static class Download
 
                 _ = ToLocalFile(hashUrl, hashLocalPath);
 
-                Du.DuHash.Verify(mtgjsonfile, zipLocalPath, hashLocalPath);
+                Console.WriteLine(Du.DuHash.Verify(zipLocalPath, hashLocalPath));
             }
 
             var justFileName= Path.GetFileNameWithoutExtension(mtgjsonfile);
 
             var extractPath = Path.Combine(AppContext.BaseDirectory, "Database", justFileName);
 
-            Compressor.UnzipFile(mtgjsonfile, zipLocalPath, extractPath);
+            //Compressor.UnzipFile(mtgjsonfile, zipLocalPath, extractPath);
+            DuZip.UnzipFile(zipLocalPath, extractPath);
         }
     }
 
