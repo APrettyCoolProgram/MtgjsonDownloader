@@ -14,7 +14,7 @@ internal class Extract
         {
             case "AllDeckFiles":
             case "AllSetFiles":
-                DuZip.UnzipFile(zipLocalPath, Path.Combine(AppContext.BaseDirectory, "Database"));
+                Console.WriteLine(DuZip.UnzipFile(zipLocalPath, Path.Combine(AppContext.BaseDirectory, "Database"), $"Extracting {mtgjsonFile}... "));
 
                 break;
 
@@ -22,7 +22,7 @@ internal class Extract
             {
                 var subPath = Path.GetFileNameWithoutExtension(mtgjsonFile);
 
-                DuZip.UnzipFile(zipLocalPath, Path.Combine(AppContext.BaseDirectory, "Database", subPath));
+                Console.WriteLine(DuZip.UnzipFile(zipLocalPath, Path.Combine(AppContext.BaseDirectory, "Database", subPath), $"Extracting {mtgjsonFile}... "));
 
                 break;
             }

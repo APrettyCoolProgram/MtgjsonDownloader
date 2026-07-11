@@ -19,13 +19,13 @@ internal static class Database
             var zipUrl       = $"{mtgjsonRootUrl}/{mtgjsonFile}.zip";
             var zipLocalPath = Path.Combine(AppContext.BaseDirectory, "MTGJSON", $"{mtgjsonFile}.zip");
 
-            Console.WriteLine(DuInternet.DownloadUrl(zipUrl, zipLocalPath, $"Downloading {mtgjsonFile}"));
+            Console.WriteLine(DuInternet.DownloadUrl(zipUrl, zipLocalPath, $"Downloading {mtgjsonFile}... "));
 
             if (verifyHashes)
             {
                 HashFile(zipUrl, zipLocalPath);
 
-                Console.WriteLine(DuHash.IsMatch(zipLocalPath, $"{zipLocalPath}.sha256", $"Verifying {mtgjsonFile} hash..."));
+                Console.WriteLine(DuHash.IsMatch(zipLocalPath, $"{zipLocalPath}.sha256", $"Verifying {mtgjsonFile} hash... "));
             }
 
             Extract.JsonFile(mtgjsonFile, zipLocalPath); //TODO message user
@@ -40,6 +40,6 @@ internal static class Database
         var hashUrl       = $"{zipUrl}.sha256";
         var hashLocalPath = $"{zipLocalPath}.sha256";
 
-        _ = DuInternet.DownloadUrl(hashUrl, hashLocalPath, $"Downloading hash for {zipLocalPath}");
+        _ = DuInternet.DownloadUrl(hashUrl, hashLocalPath, $"Downloading hash for {zipLocalPath}... ");
     }
 }
