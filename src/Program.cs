@@ -19,7 +19,7 @@ internal class Program
 
         Framework.Verify(config.FrameworkDirectories);
 
-        Download.MtgjsonJson(config);
+        Download.FromMtgjsonDotCom(config);
 
         Console.WriteLine(Catalog.msg_Complete());
     }

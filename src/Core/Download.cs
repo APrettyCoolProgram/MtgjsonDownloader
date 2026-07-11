@@ -7,60 +7,44 @@ namespace MtgjsonDownloader.Core;
 
 internal static class Download
 {
-    internal static void MtgjsonJson(Config config)
+    internal static void FromMtgjsonDotCom(Config config)
     {
-        foreach (var mtgjsonfile in config.MtgjsonFiles)
+        JsonFiles(config.MtgjsonRootUrl, config.MtgjsonFiles, config.VerifyHashes);
+
+
+
+    }
+
+    internal static void JsonFiles(string mtgjsonRootUrl, List<string> mtgjsonFiles, bool verifyHashes)
+    {
+        foreach (var mtgjsonfile in mtgjsonFiles)
         {
-            var zipUrl       = $"{config.MtgjsonRootUrl}/{mtgjsonfile}.zip";
+            // Download the zip file from the URL and save it to the local MTGJSON path
+            var zipUrl       = $"{mtgjsonRootUrl}/{mtgjsonfile}.zip";
             var zipLocalPath = Path.Combine(AppContext.BaseDirectory, "MTGJSON", $"{mtgjsonfile}.zip");
 
-            _ = ToLocalFile(zipUrl, zipLocalPath, $"Downloading {mtgjsonfile}");
+            _ = DuInternet.DownloadUrlToLocalFile(zipUrl, zipLocalPath, $"Downloading {mtgjsonfile}");
 
-            if (config.VerifyHashes)
+            if (verifyHashes)
             {
-                var hashUrl       = $"{config.MtgjsonRootUrl}/{mtgjsonfile}.zip.sha256";
-                var hashLocalPath = $"{zipLocalPath}.sha256";
+                HashFile(zipUrl, zipLocalPath);
+                Console.WriteLine(DuHash.IsMatch(zipLocalPath, $"{zipLocalPath}.sha256", $"Verifying {mtgjsonfile} hash..."));
 
-                _ = ToLocalFile(hashUrl, hashLocalPath);
-
-                Console.WriteLine(Du.DuHash.Verify(zipLocalPath, hashLocalPath));
             }
 
-            var justFileName= Path.GetFileNameWithoutExtension(mtgjsonfile);
+            var justFileName = Path.GetFileNameWithoutExtension(mtgjsonfile);
 
             var extractPath = Path.Combine(AppContext.BaseDirectory, "Database", justFileName);
 
-            //Compressor.UnzipFile(mtgjsonfile, zipLocalPath, extractPath);
             DuZip.UnzipFile(zipLocalPath, extractPath);
         }
     }
 
-    private static HttpClient ToLocalFile(string downloadUrl, string compressedFilePath, string msg = null)
+    internal static void HashFile(string zipUrl, string zipLocalPath)
     {
-        if (msg != null)
-        {
-            Console.WriteLine(msg);
-        }
+        var hashUrl       = $"{zipUrl}.sha256";
+        var hashLocalPath = $"{zipLocalPath}.sha256";
 
-        var client = new HttpClient();
-        var response = client.GetAsync(downloadUrl).Result;
-
-        if (response.IsSuccessStatusCode)
-        {
-            var content = response.Content.ReadAsByteArrayAsync().Result;
-            File.WriteAllBytes(compressedFilePath, content);
-        }
-        else
-        {
-            if (msg != null)
-            {
-                Console.WriteLine($"{Environment.NewLine}" +
-                                  $"Failed to download {msg}{Environment.NewLine}" +
-                                  $"Status code:{Environment.NewLine}" +
-                                  $"{response.StatusCode}");
-            }
-        }
-
-        return client;
+        _ = DuInternet.DownloadUrlToLocalFile(hashUrl, hashLocalPath, $"Downloading hash for {zipLocalPath}");
     }
 }
