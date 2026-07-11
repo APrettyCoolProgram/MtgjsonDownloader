@@ -27,7 +27,26 @@ internal class Config
     public List<string> MtgjsonFiles { get; set; } =
     [
         "Keywords.json",
-        "CardTypes.json"
+        "CardTypes.json",
+        "AllPrintings.json",
+        "AllDeckFiles",
+        "AllIdentifiers.json",
+        "AllPrices.json",
+        "AllPricesToday.json",
+        "AllSetFiles",
+        "AtomicCards.json",
+        "DeckList.json",
+        "Legacy.json",
+        "LegacyAtomic.json",
+        "Modern.json",
+        "ModernAtomic.json",
+        "PauperAtomic.json",
+        "Pioneer.json",
+        "PioneerAtomic.json",
+        "SetList.json",
+        "Standard.json",
+        "StandardAtomic.json",
+        "Vintage.json"
     ];
 
     /// <summary>Indicates whether to verify the hashes of the downloaded files.</summary>
