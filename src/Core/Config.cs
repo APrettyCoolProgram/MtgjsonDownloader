@@ -65,9 +65,9 @@ internal class Config
 
             return JsonSerializer.Deserialize<Config>(configJson)!;
         }
-        catch (Exception ex)
+        catch (Exception e)
         {
-            Console.WriteLine(Catalog.msg_ConfigError(ex));
+            Console.WriteLine(Catalog.msg_ConfigError(e));
 
             Environment.Exit(0);
         }
@@ -92,26 +92,3 @@ internal class Config
     private static void Create(string configFilePath) =>
         File.WriteAllText(configFilePath, JsonSerializer.Serialize(new Config(), _prettyJson));
 }
-
-/*
-,
-        "AllPrintings.json",
-        "AllDeckFiles",
-        "AllIdentifiers.json",
-        "AllPrices.json",
-        "AllPricesToday.json",
-        "AllSetFiles",
-        "AtomicCards.json",
-        "DeckList.json",
-        "Legacy.json",
-        "LegacyAtomic.json",
-        "Modern.json",
-        "ModernAtomic.json",
-        "PauperAtomic.json",
-        "Pioneer.json",
-        "PioneerAtomic.json",
-        "SetList.json",
-        "Standard.json",
-        "StandardAtomic.json",
-        "Vintage.json"
- */

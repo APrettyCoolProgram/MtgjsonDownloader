@@ -5,7 +5,7 @@
 // Copyright (c) A Pretty Cool Program. All rights reserved.
 // Licensed under the Apache 2.0 license.
 // -----------------------------------------------------------------------------
-// R26.7.0.0-development+111553
+// R26.7.0.0-development+111715
 // =============================================================================
 
 namespace MtgjsonDownloader;
