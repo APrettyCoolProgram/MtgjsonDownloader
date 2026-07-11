@@ -1,11 +1,11 @@
 <div align="center">
 
-  <h1>Repository: Changelog</h1>
+  <h1>MtgjsonDownloader: Changelog</h1>
 
 </div>
 
-## RYY.MM (YYYY-MM-DD)
+## R26.7 (2026-07-11)
 
-> Please see the [release notes](release-notes/RXX.md) for more details.
+> Please see the [release notes](release-notes/R26.7.md) for more details.
 
 ***

@@ -1,6 +1,6 @@
 <div align="center">
 
-  <h1>Repository: Support</h1>
+  <h1>MtgjsonDownloader: Support</h1>
 
 </div>
 
@@ -8,4 +8,4 @@ This project uses GitHub Issues to track bugs and feature requests. Please searc
 
 For new issues, file your bug or feature request as a new Issue.
 
-<sub>Last updated: 260704</sub>
+<sub>Last updated: 260711</sub>

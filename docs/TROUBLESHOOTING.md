@@ -1,7 +1,7 @@
 <div align="center">
 
-  <h1>Repository: Troubleshooting</h1>
+  <h1>MtgjsonDownloader: Troubleshooting</h1>
 
 </div>
 
-<sub>Last updated: 260704</sub>
+<sub>Last updated: 260711</sub>
