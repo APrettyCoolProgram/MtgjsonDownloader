@@ -61,43 +61,60 @@ MTGJSON Downloader will then start and begin downloading the latest MTGJSON data
 
 When you run MTGJSON Downloader, it:
 
-1. Attempts to load the `MtgjsonDownloader.config` file, or creates a default configuration file if one does not exist
-2. Downloads the MTGJSON `<filename>.json.zip` files defined in the configuration file to the `./MTGJSON` directory, overwriting any existing files
-3. Downloads the `<filename>.json.zip.sha256` files for integrity verification to the `./MTGJSON` directory, overwriting any existing files
-4. If verification is enabled, verifies the integrity of the `<filename>.json.zip` files
-5. Extracts the `<filename>.json.zip` files to the `./Database` directory
+1. Attempts to load the `MtgjsonDownloader.config` file, or creates a default configuration file if one does not exist.
+2. Downloads the MTGJSON `<filename>.json.zip` files defined in the configuration file to the `./MTGJSON` directory, overwriting any existing files.
+3. Downloads the `<filename>.json.zip.sha256` files for integrity verification to the `./MTGJSON` directory, overwriting any existing files.
+4. If verification is enabled, verifies the integrity of the `<filename>.json.zip` files.
+5. Extracts the `<filename>.json.zip` files to the `./Database` directory.
 
 ## Configuring
 
-The `MtgjsonDownloader.config` file allows you to customize which MTGJSON data files are downloaded and whether integrity verification is enabled.
+The `./MtgjsonDownloader.config` file allows you to:
 
-By default, the following MTGJSON data files will be downloaded:
+1. Customize which MTGJSON data files are downloaded.
+2. Enable or disable integrity verification.
 
-* Keywords.json
-* CardTypes.json
-* AllPrintings.json
-* AllDeckFiles
-* AllIdentifiers.json
-* AllPrices.json
-* AllPricesToday.json
-* AllSetFiles
-* AtomicCards.json
-* DeckList.json
-* Legacy.json
-* LegacyAtomic.json
-* Modern.json
-* ModernAtomic.json
-* PauperAtomic.json
-* Pioneer.json
-* PioneerAtomic.json
-* SetList.json
-* Standard.json
-* StandardAtomic.json
-* Vintage.json
+The configuration file contains the list of MTGJSON data files to be downloaded, which looks like this:
 
-If you want to customize which files are downloaded, you can modify the list in the `MtgjsonDownloader.config` file located in the same directory as the executable.
+```json
+"MtgjsonFiles": [
+    "Keywords.json",
+    "CardTypes.json",
+    "AllPrintings.json",
+    "AllDeckFiles",
+    "AllIdentifiers.json",
+    "AllPrices.json",
+    "AllPricesToday.json",
+    "AllSetFiles",
+    "AtomicCards.json",
+    "DeckList.json",
+    "Legacy.json",
+    "LegacyAtomic.json",
+    "Modern.json",
+    "ModernAtomic.json",
+    "PauperAtomic.json",
+    "Pioneer.json",
+    "PioneerAtomic.json",
+    "SetList.json",
+    "Standard.json",
+    "StandardAtomic.json",
+    "Vintage.json"
+  ],
+```
 
-If you want to disable integrity verification, you can set the `EnableVerification` option to `false` in the `MtgjsonDownloader.config` file.
+Just modify the list in the configuration file to customize which files are downloaded.
+
+If you want to disable integrity verification, change this:
+
+```json
+  "VerifyHashes": true
+```
+
+to this:
+
+```json
+  "VerifyHashes": false
+```
 
 ## Acknowledgements
 
@@ -108,12 +125,6 @@ If you want to disable integrity verification, you can set the `EnableVerificati
 Distributed under the [Apache 2.0 License](LICENSE).  
 Copyright &copy; 2026 A Pretty Cool Program
 
-<h6 align="center">
-
-  [FAQ](docs/FAQ.md)&nbsp;&bull;&nbsp;[DEVELOPMENT](docs/DEVELOPMENT.md)&nbsp;&bull;&nbsp;[API](docs/api/README.md)&nbsp;&bull;&nbsp;[TESTING](docs/TESTING.md)&nbsp;&bull;&nbsp;[SUPPORT](docs/SUPPORT.md)&nbsp;&bull;&nbsp;[NOTICES](docs/NOTICES.md)
-  
-</h6>
-
----
+***
 
 <sub>Last updated: 260725</sub>
