@@ -1,10 +1,11 @@
 ﻿// 260711_code
-// 260711_documentation
+// 260725_documentation
 
 using Du;
 
 namespace MtgjsonDownloader.Core;
 
+/// <summary>MTGJSON database logic.</summary>
 internal static class Database
 {
     /// <summary>Builds the MTGJSON database by downloading and extracting the specified files from the given root URL. Optionally verifies the hashes of the downloaded files.</summary>
@@ -15,9 +16,9 @@ internal static class Database
     {
         foreach (var mtgjsonFile in mtgjsonFiles)
         {
-            // Download the zip file from the URL and save it to the local MTGJSON path
-            var zipUrl       = $"{mtgjsonRootUrl}/{mtgjsonFile}.zip";
-            var zipLocalPath = Path.Combine(AppContext.BaseDirectory, "MTGJSON", $"{mtgjsonFile}.zip");
+            var zipUrl = $"{mtgjsonRootUrl}/{mtgjsonFile}.zip";
+
+            var zipLocalPath = Path.Combine("MTGJSON", $"{mtgjsonFile}.zip");
 
             Console.WriteLine(DuInternet.DownloadUrl(zipUrl, zipLocalPath, $"Downloading {mtgjsonFile}... "));
 

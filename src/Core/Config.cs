@@ -1,10 +1,11 @@
 ﻿// 260711_code
-// 260711_documentation
+// 260725_documentation
 
 using System.Text.Json;
 
 namespace MtgjsonDownloader.Core;
 
+/// <summary>MTGJSON Downloader configuration logic.</summary>
 internal class Config
 {
     /// <summary>JSON serializer options for pretty printing.</summary>

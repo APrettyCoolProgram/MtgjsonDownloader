@@ -1,4 +1,7 @@
-﻿using Du;
+﻿// 260711_code
+// 260711_documentation
+
+using Du;
 
 namespace MtgjsonDownloader.Core;
 
@@ -14,7 +17,7 @@ internal class Extract
         {
             case "AllDeckFiles":
             case "AllSetFiles":
-                Console.WriteLine(DuZip.UnzipFile(zipLocalPath, Path.Combine(AppContext.BaseDirectory, "Database"), $"Extracting {mtgjsonFile}... "));
+                Console.WriteLine(DuZip.UnzipFile(zipLocalPath, Path.Combine("Database"), $"Extracting {mtgjsonFile}... "));
 
                 break;
 
@@ -22,7 +25,7 @@ internal class Extract
             {
                 var subPath = Path.GetFileNameWithoutExtension(mtgjsonFile);
 
-                Console.WriteLine(DuZip.UnzipFile(zipLocalPath, Path.Combine(AppContext.BaseDirectory, "Database", subPath), $"Extracting {mtgjsonFile}... "));
+                Console.WriteLine(DuZip.UnzipFile(zipLocalPath, Path.Combine("Database", subPath), $"Extracting {mtgjsonFile}... "));
 
                 break;
             }

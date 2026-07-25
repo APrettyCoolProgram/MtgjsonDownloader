@@ -1,6 +1,6 @@
 <div align="center">
 
-  <h1>MtgjsonDownloader: Frequently Asked Questions</h1>
+  <h1>MTGJSON Downloader: Frequently Asked Questions</h1>
 
 </div>
 

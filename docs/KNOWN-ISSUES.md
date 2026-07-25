@@ -1,6 +1,6 @@
 <div align="center">
 
-  <h1>MtgjsonDownloader: Known Issues</h1>
+  <h1>MTGJSON Downloader: Known Issues</h1>
 
 </div>
 

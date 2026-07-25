@@ -1,6 +1,6 @@
 <div align="center">
 
-  <h1>MtgjsonDownloader: Design Document</h1>
+  <h1>MTGJSON Downloader: Design Document</h1>
 
 </div>
 

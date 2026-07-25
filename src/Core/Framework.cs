@@ -3,7 +3,7 @@
 
 using Du;
 
-namespace MtgjsonDownloader;
+namespace MtgjsonDownloader.Core;
 
 /// <summary>Logic related to the framework.</summary>
 internal class Framework

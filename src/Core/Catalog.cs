@@ -4,7 +4,7 @@
 namespace MtgjsonDownloader.Core;
 
 /// <summary>Catalog.</summary>
-internal class Catalog
+internal static class Catalog
 {
     /// <summary>Gets the message displayed when the application starts.</summary>
     /// <returns>The start message.</returns>

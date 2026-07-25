@@ -1,5 +1,5 @@
 <div align="center">
 
-  <h1>MtgjsonDownloader: Development - Notes</h1>
+  <h1>MTGJSON Downloader: Development - Notes</h1>
 
 </div>
