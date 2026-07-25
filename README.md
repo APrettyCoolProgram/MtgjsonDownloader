@@ -27,11 +27,12 @@
 | [About MTGJSON Downloader](#about-mtgjsondownloader) |
 | [Installing](#installing) |
 | [Usage](#usage) |
+| [How it works](#how-it-works) |
+| [Configuring](#configuring) |
 | [Acknowledgements](#acknowledgements) |
-| [Related projects](#related-projects) |
 | [License](#license) |
 
----
+***
 
 ## About MTGJSON Downloader
 
@@ -45,7 +46,7 @@ MTGJSON Downloader makes it easy to download - and verify! - [MTGJSON](https://m
 
 MTGJSON Downloader is a portable application, so to "install":
 
-1. Download the latest release from the [releases page](https://github.com/APCP/MtgjsonDownloader/releases).
+1. Download the latest release from the [releases page](https://github.com/APrettyCoolProgram/MtgjsonDownloader/releases).
 2. Extract the downloaded archive to a location of your choice.
 
 ## Usage
@@ -57,7 +58,7 @@ To use MTGJSON Downloader:
 
 MTGJSON Downloader will then start and begin downloading the latest MTGJSON data files.
 
-## What it does
+## How it works
 
 When you run MTGJSON Downloader, it:
 
