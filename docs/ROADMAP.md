@@ -1,7 +1,11 @@
 <div align="center">
 
-  <h1>Repository: Roadmap</h1>
+  <h1>MTGJSON Downloader: Roadmap</h1>
 
 </div>
 
-<sub>Last updated: 260704</sub>
+* Maybe let the user pass parameters to:
+  * Download a specific file
+  * Force enable/disable hash verification
+
+<sub>Last updated: 260725</sub>

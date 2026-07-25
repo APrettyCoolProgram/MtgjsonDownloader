@@ -1,0 +1,4 @@
+<Solution>
+  <Project Path="../../Du/DotNetCSharp/src/Du.csproj" />
+  <Project Path="MtgjsonDownloader.csproj" />
+</Solution>
