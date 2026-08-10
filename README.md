@@ -8,7 +8,7 @@
 
   <h1>MTGJSON Downloader</h1>
 
-  ![RELEASE](https://img.shields.io/badge/R26.7.1-teal)&nbsp;
+  ![RELEASE](https://img.shields.io/badge/v1.1-teal)&nbsp;
   ![LICENSE](https://img.shields.io/badge/License-apache-blue)&nbsp;
   ![Platform](https://img.shields.io/badge/platform-Windows%20%7C%20macOS-lightgrey)&nbsp;
 
